@@ -2,12 +2,49 @@
 
 ---
 
+$lan: "Lantinghei SC";
+$wqy: "WenQuanYiMicroHeiLight";
+$hira: "Hiragino Sans GB";
 @import "solarized.scss";
 
-body {
-  background: $base3;
-  font-size: 24px;
-  font-family: georgia;
+h1, h2, h3 {
+  font-weight: 900;
+  text-align: center;
+  font-family: songti sc;
 }
 
+body {
+  background: $base2;
+  color: $base02;
+  font-size: 24px;
+  font-family: georgia, $hira, $wqy, $lan;
+  font-weight: 400;
+}
 
+a {
+  color: inherit;
+  text-decoration: none;
+  &:hover { color: $blue; }
+}
+.pinyin-mark{
+  
+}
+.trans{
+  color:$base01;
+}
+.text{
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 2em;
+  letter-spacing: 0.05em;
+}
+.home{
+
+}
+ul {
+  padding-left: 0;
+  list-style:none;
+}
+li {
+  margin: 3em 0;
+}

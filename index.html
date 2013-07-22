@@ -1,9 +1,20 @@
 ---
 layout: default
 title: pspEgg
+type: index
+
 ---
 
-<div class="home">
-  <h1>hey guys</h1>
-  <p>hey look at me!</p>
+<div class="text home">
+    <ul>
+      {% for p in site.pages %}
+      {% if p.title != 'pspEgg' %}
+        <li>
+          <h2>
+            <a href="{{p.url}}">{{p.title}}</a>
+          </h2>
+        </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
 </div>

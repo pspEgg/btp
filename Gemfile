@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+gem 'guard-jekyll-plus'
+gem 'guard'
+gem 'sass'
+gem 'kramdown'

@@ -6,3 +6,7 @@ exclude: [dev]
 prose: 
   siteurl: "http://pspegg.co"
   media: 'media'
+data:
+  words: dev/words.txt
+  quotes: dev/quotes.txt
+  names: dev/names.txt
