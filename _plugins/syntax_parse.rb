@@ -56,7 +56,7 @@ class BtpQuote < BtpString
 end
 class BtpScene < BtpString
   def initialize(string)
-    super(string) {|s| "<p class=\"scene\">#{s}：</p>"}
+    super(string) {|s| "<p class=\"scene\">#{s}，</p>"}
   end
 end
 class BtpComment < BtpString
