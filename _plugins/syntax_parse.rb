@@ -18,14 +18,19 @@ class BtpParser
   def parse(text)
     array = text.split(@deliminator)
     array.each do |p|
-      #Trailing "，"
+      # Pinyin Super Scripts []
+      p.gsub!(/\[([^\]\[]+)\]/){|s|BtpPinyinSuperScript.new($1)}
+      # Trailing "，"
       p.chomp!('，')
-      #Subscript Characters
+      # Subscript Characters
       p.gsub!(/([\u2080-\u2089]+)/){|s| "<sub>#{s}</sub>"}
-
+      # Normal line
       p.gsub!(/^([^>（）\n]+)/){|s| BtpDescription.new($1)}
+      # newline（Action）
       p.gsub!(/^（(.[^（）]+)）/){|s| BtpAction.new($1)}
+      # inline（TRANS）
       p.gsub!(/（(.[^（）]+)）/){|s| BtpTranslation.new($1)}  
+      # > ...
       p.gsub!(/^>(.+)$/){|s| BtpQuote.new($1)}
     end
     array
@@ -43,12 +48,19 @@ class BtpAction < BtpString
 end
 class BtpQuote < BtpString
   def initialize(string)
-    super(string) {|s| "<blockquote>#{s}</blockquote>"}
+    super(string) {|s| "<blockquote><div class=\"char\">老高</div>#{s}
+    </blockquote>"}
   end
 end
 class BtpDescription < BtpString
   def initialize(string)
     super(string) {|s| "<p class=\"description\">#{s}</p>"}
+  end
+end
+class BtpPinyinSuperScript < BtpString
+  def initialize(string)
+    # e.g. [suī]
+    super(string) {|s| "<sup class=\"pinyin\">#{s}</sup>"}
   end
 end
 
