@@ -25,12 +25,21 @@ body {
   font-size: 0.8em;
   color: $base00;
 }
+
 .masthead {
   font-size: 1.5em;
   border-bottom: 2px dashed $base03;
   margin: 0 1em 0 1em;
 
 }
+ul {
+  padding-left: 0;
+  list-style:none;
+}
+li {
+  margin: 4em 0;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -46,38 +55,38 @@ a {
   padding:0 1em;
   max-width: 640px;
   margin: 0 auto;
-  line-height: 2em;
+  line-height: 1.5em;
   letter-spacing: 0.05em;
 }
-.home{
+.quote{
+  margin-bottom: 3em;
 
+}
+hr {
+  border-color: $base1;
+  border-style: dashed;
+  border-width: 1px;
+}
+p{
+  margin: 0;
 }
 blockquote {
-  
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
 }
-ul {
-  padding-left: 0;
-  list-style:none;
-}
-li {
-  margin: 4em 0;
+.action {
+  text-align: center;
 }
 
-$split: 40%;
-.post{
-  // text-align: right;
-  p{
-    // background
-    margin:0;
-  }
-  .quote {
-    text-align: right;
-    display: inline-block;
-    // background: $base00;
-    width: 60%;
-    padding-right:1%;
-  }
-}
+
+
+
+
+
+
+
+
 
 
 

@@ -16,20 +16,24 @@ class BtpParser
     @re_display_hash = Hash(re_display_hash)
   end
   def parse(text)
-    text.split(@deliminator).each do |p|
+    array = text.split(@deliminator)
+    array.each do |p|
+      #Trailing "，"
+      p.chomp!('，')
       #Subscript Characters
-      p.gsub(/([\u2080-\u2089]+)/){|s| "<sub>#{s}</sub>"}
+      p.gsub!(/([\u2080-\u2089]+)/){|s| "<sub>#{s}</sub>"}
 
-      p.gsub!(/^([^>（）]+)/){|s| BtpDescription.new($1)}
+      p.gsub!(/^([^>（）\n]+)/){|s| BtpDescription.new($1)}
       p.gsub!(/^（(.[^（）]+)）/){|s| BtpAction.new($1)}
       p.gsub!(/（(.[^（）]+)）/){|s| BtpTranslation.new($1)}  
       p.gsub!(/^>(.+)$/){|s| BtpQuote.new($1)}
     end
+    array
   end
 end
 class BtpTranslation < BtpString
   def initialize(string)
-    super(string) {|s| "<span class=\"trans\">#{s}</span>"}
+    super(string) {|s| "<span class=\"trans\">（#{s}）</span>"}
   end
 end
 class BtpAction < BtpString
@@ -52,7 +56,7 @@ end
 # re_display_hash = {
 #   /.+（([^（）]+)）/ => -> s {"#{@string}"}
 # }
-text = File.read('./quotes_v2.txt')
-parser = BtpParser.new
-array = parser.parse(text)
-puts array[20..23]
+# text = File.read('./quotes_v2.txt')
+# parser = BtpParser.new
+# array = parser.parse(text)
+# puts array[20..23]

@@ -6,15 +6,10 @@ type: index
 ---
 
 <div class="text home">
-    <ul>
-      {% for p in site.pages %}
-      {% if p.title != 'pspEgg' %}
-        <li>
-          <h2>
-            <a href="{{p.url}}">{{p.title}}</a>
-          </h2>
-        </li>
-      {% endif %}
-      {% endfor %}
-    </ul>
+  {% for q in site.quotes %}
+  <div class="quote">
+  {{q}}
+  </div>
+  <hr />
+  {% endfor %}
 </div>
