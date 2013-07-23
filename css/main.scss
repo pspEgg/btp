@@ -14,13 +14,23 @@ h1, h2, h3 {
 }
 
 body {
-  background: $base2;
+  background: #ecece;
   color: $base02;
   font-size: 24px;
   font-family: georgia, $hira, $wqy, $lan;
-  font-weight: 400;
+  font-weight: 700;
+  margin: 0;
 }
+.nav{
+  font-size: 0.8em;
+  color: $base00;
+}
+.masthead {
+  font-size: 1.5em;
+  border-bottom: 2px dashed $base03;
+  margin: 0 1em 0 1em;
 
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -33,6 +43,7 @@ a {
   color:$base01;
 }
 .text{
+  padding:0 1em;
   max-width: 640px;
   margin: 0 auto;
   line-height: 2em;
@@ -41,10 +52,49 @@ a {
 .home{
 
 }
+blockquote {
+  
+}
 ul {
   padding-left: 0;
   list-style:none;
 }
 li {
-  margin: 3em 0;
+  margin: 4em 0;
 }
+
+$split: 40%;
+.post{
+  // text-align: right;
+  p{
+    // background
+    margin:0;
+  }
+  .quote {
+    text-align: right;
+    display: inline-block;
+    // background: $base00;
+    width: 60%;
+    padding-right:1%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

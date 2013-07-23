@@ -13,7 +13,6 @@
     </head>
     <body>
 
-     <div class="wrapper">
      <div class="nav">
       {% for p in site.pages %}
       {% if p.title != 'pspEgg' %}
@@ -21,8 +20,17 @@
       {% endif %}
       {% endfor %}
      </div>
+    
+     <div class="wrapper">
+  
+    <div class="masthead">
+      <h1>刷牙语录</h1>
+    </div>
+
+
        {{content}}
-     </div>
+
+   </div>
 
         {% include analytics.js.html %}
     </body>
