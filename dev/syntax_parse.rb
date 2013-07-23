@@ -17,6 +17,9 @@ class BtpParser
   end
   def parse(text)
     text.split(@deliminator).each do |p|
+      #Subscript Characters
+      p.gsub(/([\u2080-\u2089]+)/){|s| "<sub>#{s}</sub>"}
+
       p.gsub!(/^([^>（）]+)/){|s| BtpDescription.new($1)}
       p.gsub!(/^（(.[^（）]+)）/){|s| BtpAction.new($1)}
       p.gsub!(/（(.[^（）]+)）/){|s| BtpTranslation.new($1)}  
