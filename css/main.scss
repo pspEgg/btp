@@ -86,10 +86,12 @@ blockquote {
   width: 60%;
   font-weight: 800;
 }
-.description {
+.comment {
+  word-break: break-all;
   margin: 1.5em 0;
   text-align: right;
-  padding-left: 1em;
+  padding-left: 35%;
+  line-height: 2em;
 }
 .action {
   font-size: 0.8em;

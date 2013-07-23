@@ -24,8 +24,10 @@ class BtpParser
       p.chomp!('，')
       # Subscript Characters
       p.gsub!(/([\u2080-\u2089]+)/){|s| "<sub>#{s}</sub>"}
-      # Normal line
-      p.gsub!(/^([^>（）\n]+)/){|s| BtpDescription.new($1)}
+      # Line in the beginning or the middle
+      p.gsub!(/^([^>（）\n]+)$(?=\n[^\z])/){|s| BtpScene.new($1)}
+      # Last Line
+      p.gsub!(/^([^>（）\n]+)\z/){|s| BtpComment.new($1)}
       # newline（Action）
       p.gsub!(/^（(.[^（）]+)）/){|s| BtpAction.new($1)}
       # inline（TRANS）
@@ -52,9 +54,14 @@ class BtpQuote < BtpString
     </blockquote>"}
   end
 end
-class BtpDescription < BtpString
+class BtpScene < BtpString
   def initialize(string)
-    super(string) {|s| "<p class=\"description\">#{s}</p>"}
+    super(string) {|s| "<p class=\"scene\">#{s}：</p>"}
+  end
+end
+class BtpComment < BtpString
+  def initialize(string)
+    super(string) {|s| "<p class=\"comment\">█ #{s}</p>"}
   end
 end
 class BtpPinyinSuperScript < BtpString
