@@ -12,12 +12,8 @@ type: index
     
   </div>
   <div class="right-col">
-    {% for q in site.quotes %}
-    <div class="quote-article">
+    {% for q in site.interlaced %}
     {{q}}
-    </div>
-    <!-- <hr class="separator" /> -->
-  
     {% endfor %}
   </div>
 </div>

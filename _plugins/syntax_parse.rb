@@ -9,15 +9,30 @@ class BtpString
     @display_rule.call(@string)
   end
 end
+class BtpWordsParser
+  def parse(text)
+    array = text.split(/\n+/m)
+    array.map! do |p|
+      # Pinyin Super Scripts []
+      p.gsub!(/\[([^\]\[]+)\]/){|s|BtpPinyinSuperScript.new($1)}
+      # trans
+      p.gsub!(/（(.[^（）]+)）/){|s| BtpTranslation.new($1)}  
+      # entire line
+      p.gsub!(/^(.+)$/){|s| BtpQuote.new($1)}
+
+      p = "<div class=\"translation-article\">#{p}</div>"
+    end
+    array
+  end
+end
 class BtpParser
-  attr_accessor :deliminator, :re_display_hash
+  attr_accessor :deliminator
   def initialize(deliminator = /\n{2,}/m)
     @deliminator = deliminator
-    @re_display_hash = Hash(re_display_hash)
   end
   def parse(text)
     array = text.split(@deliminator)
-    array.each do |p|
+    array.map! do |p|
       # Pinyin Super Scripts []
       p.gsub!(/\[([^\]\[]+)\]/){|s|BtpPinyinSuperScript.new($1)}
       # Trailing "，"
@@ -36,6 +51,8 @@ class BtpParser
       p.gsub!(/（(.[^（）]+)）/){|s| BtpTranslation.new($1)}  
       # > ...
       p.gsub!(/^>(.+)$/){|s| BtpQuote.new($1)}
+
+      "<div class=\"quote-article\">#{p}</div>"
     end
     array
   end
@@ -72,7 +89,6 @@ class BtpPinyinSuperScript < BtpString
     super(string) {|s| "<sup class=\"pinyin\">#{s}</sup>"}
   end
 end
-
 # between "（）" but not on newline.
 # re_display_hash = {
 #   /.+（([^（）]+)）/ => -> s {"#{@string}"}
