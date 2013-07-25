@@ -27,7 +27,9 @@ class BtpParser
       # Line in the beginning or the middle
       p.gsub!(/^([^>（）\n]+)$(?=\n[^\z])/){|s| BtpScene.new($1)}
       # Last Line
-      p.gsub!(/^([^>（）\n]+)\z/){|s| BtpComment.new($1)}
+      if (p.gsub!(/^([^>（）\n]+)\z/){|s| BtpComment.new($1)}).nil?
+      #   p << "\n" + BtpComment.new('').to_s
+      end
       # newline（Action）
       p.gsub!(/^（(.[^（）]+)）/){|s| BtpAction.new($1)}
       # inline（TRANS）
@@ -61,6 +63,7 @@ class BtpScene < BtpString
 end
 class BtpComment < BtpString
   def initialize(string)
+    # With the Square in front
     super(string) {|s| "<p class=\"comment\">█ #{s}</p>"}
   end
 end
