@@ -7,12 +7,17 @@ type: index
 
 <!-- <div class="line"></div> -->
 
-<div class="text home">
-  {% for q in site.quotes %}
-  <div class="quote-article">
-  {{q}}
+<div class="home-page">
+  <div class="left-col">
+    
   </div>
-  <!-- <hr class="separator" /> -->
-
-  {% endfor %}
+  <div class="right-col">
+    {% for q in site.quotes %}
+    <div class="quote-article">
+    {{q}}
+    </div>
+    <!-- <hr class="separator" /> -->
+  
+    {% endfor %}
+  </div>
 </div>

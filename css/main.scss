@@ -58,14 +58,21 @@ a {
   // padding-bottom: 39999px;
   // margin-bottom: -39959px;
 // }
-.text{
-  padding:0 0.5em;
-  //width: 95%;
+.home-page{
   max-width: 480px;
   margin: 0 auto;
+  padding-left:15%;
+
+}
+.left-col{
+
+}
+.right-col{
+  padding:1em 0.5em;
   line-height: 1.5em;
   letter-spacing: 0.05em;
   border-left: 2px dashed $base01;
+  padding-right: 18%;
 }
 .quote-article{
   margin: 0 0 5em 0;
@@ -87,10 +94,12 @@ a {
   text-align: right;
 }
 .scene{
-  width: 130%;
-  margin-left:-15%;
+  width: 140%;
+  margin-left:-20%;
   background: white;
-  padding: 0.3em 0;
+  padding: 0.5em 0;
+  margin-top: -0.2em;
+  margin-bottom: -0.2em;
 }
 .comment {
   //width: 100%;
