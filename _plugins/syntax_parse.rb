@@ -52,8 +52,7 @@ class BtpAction < BtpString
 end
 class BtpQuote < BtpString
   def initialize(string)
-    super(string) {|s| "<blockquote><div class=\"char\">老高</div>#{s}
-    </blockquote>"}
+    super(string) {|s| "<blockquote class=\"quote\">#{s}</blockquote>"}
   end
 end
 class BtpScene < BtpString

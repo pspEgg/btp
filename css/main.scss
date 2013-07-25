@@ -49,7 +49,7 @@ a {
   
 }
 .trans{
-  // color:$base01;
+  // color:$base02;
 }
 // .line{
   // border-left:2px solid black;
@@ -59,42 +59,38 @@ a {
   // margin-bottom: -39959px;
 // }
 .text{
-  padding:0 1em;
-  max-width: 640px;
+  padding:0 0.5em;
+  //width: 95%;
+  max-width: 480px;
   margin: 0 auto;
   line-height: 1.5em;
   letter-spacing: 0.05em;
   border-left: 2px dashed $base01;
 }
-.quote{
+.quote-article{
   margin: 0 0 5em 0;
 }
-.separator {
-  text-align: center;
-  border-color: black;
-  border-style: solid;
-  border-width: 1px;
-  margin:0 8em;
-}
-.number{
-  //display: none;
-  font-family: Helvetica;
-  text-align: left;
-}
-.char{
-  display: none;
-  text-align: center;
-  margin-bottom: 0.5em;
-  font-weight: 800;
-}
-blockquote {
+.quote {
   //font-size: 1.2em;
   // font-family: Songti SC;
   // border-left: 0.2em solid $base03;
   padding-left:0.5em;
   margin: 0 auto 0 auto;
-  width: 60%;
+  //width: 60%;
   font-weight: 800;
+}
+.action {
+  font-size: 0.8em;
+  width: 40%;
+  margin: 0 auto 0.5em auto;
+  //padding-right:5em;
+  text-align: right;
+}
+.scene{
+  width: 130%;
+  margin-left:-15%;
+  background: white;
+  padding: 0.3em 0;
 }
 .comment {
   //width: 100%;
@@ -105,12 +101,14 @@ blockquote {
   padding-left: 35%;
   line-height: 2em;
 }
-.action {
-  font-size: 0.8em;
-  width: 40%;
-  margin: 0 auto 0.5em auto;
-  //padding-right:5em;
-  text-align: right;
+
+
+.separator {
+  text-align: center;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  margin:0 8em;
 }
 
 
