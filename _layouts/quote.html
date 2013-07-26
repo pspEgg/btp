@@ -1,0 +1,16 @@
+---
+layout: default
+
+---
+<div class="quote-page">
+  <div class="single-quote">
+    {{page.quote}}
+  </div>
+  
+  <div class="raw-quote">
+    {% for r in page.raw %}
+      <p>{{r}}</p>
+    {% endfor %}
+  </div>
+
+</div>
