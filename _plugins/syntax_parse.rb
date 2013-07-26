@@ -10,28 +10,23 @@ class BtpString
   end
 end
 class BtpWordsParser
-  def parse(text)
-    array = text.split(/\n+/m)
+  def parse(array)
     array.map! do |p|
       # Pinyin Super Scripts []
       p.gsub!(/\[([^\]\[]+)\]/){|s|BtpPinyinSuperScript.new($1)}
       # trans
-      p.gsub!(/（(.[^（）]+)）/){|s| BtpTranslation.new($1)}  
+      p.gsub!(/（(.[^（）]+)）/){|s| "<br />" + BtpTranslation.new($1).to_s}  
       # entire line
       p.gsub!(/^(.+)$/){|s| BtpQuote.new($1)}
 
       p = "<div class=\"translation-article\">#{p}</div>"
+      # p = "<div class=\"translation-article-wrapper\">#{p}</div>"
     end
     array
   end
 end
 class BtpParser
-  attr_accessor :deliminator
-  def initialize(deliminator = /\n{2,}/m)
-    @deliminator = deliminator
-  end
-  def parse(text)
-    array = text.split(@deliminator)
+  def parse(array)
     array.map! do |p|
       # Pinyin Super Scripts []
       p.gsub!(/\[([^\]\[]+)\]/){|s|BtpPinyinSuperScript.new($1)}
@@ -54,7 +49,6 @@ class BtpParser
 
       "<div class=\"quote-article\">#{p}</div>"
     end
-    array
   end
 end
 class BtpTranslation < BtpString
