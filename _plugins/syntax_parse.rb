@@ -19,7 +19,6 @@ class BtpWordsParser
       # entire line
       p.gsub!(/^(.+)$/){|s| BtpQuote.new($1)}
 
-      p = "<div class=\"translation-article\">#{p}</div>"
       # p = "<div class=\"translation-article-wrapper\">#{p}</div>"
     end
     array
@@ -47,7 +46,6 @@ class BtpParser
       # > ...
       p.gsub!(/^>(.+)$/){|s| BtpQuote.new($1)}
 
-      "<div class=\"quote-article\">#{p}</div>"
     end
   end
 end

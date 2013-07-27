@@ -1,3 +1,7 @@
+def stream_hash(key, html, type)
+  {"url" => key, "html" => html, "type" => type}
+end
+
 def interlace_arrays (first, second)
   f = first.count
   s = second.count
@@ -5,6 +9,7 @@ def interlace_arrays (first, second)
   else          less, more = first, second
   end
   min_insertion = more.count / less.count
+
   # Randomized Insertion points for Left_over
   left_over = more.count % less.count
   pts = []
@@ -17,15 +22,20 @@ def interlace_arrays (first, second)
     end
   end
 
-  insertions = more.map
+  # Make Enumerator
+  insertions = more.each
   interlaced = []
-  less.each_with_index do |l, index|
-    interlaced.push l
+  less.each_with_index do |(key, html), index|
+    interlaced.push stream_hash(key, html, 1)
     min_insertion.times do
-      interlaced.push(insertions.next)
+      p = insertions.next
+      interlaced.push stream_hash(p[0], p[1], 2)
     end
     # Adding Left Overs
-    interlaced.push(insertions.next) if pts.include? index
+    if pts.include? index
+      p = insertions.next
+      interlaced.push stream_hash(p[0], p[1], 2)
+    end
   end
   interlaced
 end

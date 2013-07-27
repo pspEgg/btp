@@ -2,7 +2,7 @@
 layout: default
 title: pspEgg
 type: index
-
+subtitle: "&nbsp;"
 ---
 
 <!-- <div class="line"></div> -->
@@ -12,9 +12,17 @@ type: index
     <!-- by 亲爱的高老师 -->
   </div>
   <div class="interlaced">
-    <!-- <div class="vertical-line"></div> -->
       {% for q in site.interlaced %}
-      {{q}}
+      {% if q.type == 1 %}
+         <div class="quote-article">
+         <div class="url">
+           <a href="\{{q.url}}"><span class="url-text">{{q.url}}</span></a>
+         </div>
+           {{q.html}}
+         </div> 
+      {% else %}
+         <div class="translation-article"><a href="\{{q.url}}">{{q.html}}</a></div>
+      {% endif %}
       {% endfor %}
   </div>
 </div>
