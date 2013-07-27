@@ -6,12 +6,14 @@ $lan: "Lantinghei SC";
 $wqy: "WenQuanYiMicroHeiLight";
 $hira: "Hiragino Sans GB";
 @import "solarized.scss";
+@import "fonts.scss";
 
 h1, h2, h3 {
-  font-weight: 900;
+  font-weight: 800;
   text-align: center;
-  font-family: songti sc;
-  margin:0;
+  font-family: "fontcustom" Songti SC;
+  letter-spacing: 0.08em;
+  margin-top:0.5em;
 }
 
 body {
@@ -33,12 +35,12 @@ body {
 
 .masthead {
   h1{
-    margin: 0.7em 0;
+    margin: 0.8em 0;
   }
   font-size: 1.5em;
   border-bottom: 2px solid $base03;
-  margin: 0em 1em 0em 1em;
-  padding: 0.5em 0 0.5em 0;
+  margin: 0em 1.2em 0em 1em;
+  padding: 0.7em 0 0.5em 0;
 }
 
 a {

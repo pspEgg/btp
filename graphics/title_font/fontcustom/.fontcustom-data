@@ -1,0 +1,19 @@
+{
+  "fonts": [
+    "fontcustom_7daf3d35c00677bc9208a50f8124be27.ttf",
+    "fontcustom_7daf3d35c00677bc9208a50f8124be27.woff",
+    "fontcustom_7daf3d35c00677bc9208a50f8124be27.eot",
+    "fontcustom_7daf3d35c00677bc9208a50f8124be27.svg"
+  ],
+  "templates": [
+    "fontcustom.css",
+    "fontcustom-preview.html"
+  ],
+  "file_name": "fontcustom_7daf3d35c00677bc9208a50f8124be27",
+  "glyphs": [
+    "21047",
+    "24405",
+    "29273",
+    "35821"
+  ]
+}
